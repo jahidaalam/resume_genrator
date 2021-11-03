@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Baloo Bhai 2', cursive;
+}
+
+#photoT{
+    width: 130px;   
+    border-radius: 50%;    
+}
+.personal-d{
+    background-color: rgb(73, 73, 78);
+    color: white;
+    padding: 20px;
+    /* height:35rem; */
+}
+#cv-t{
+    display: none;
+}

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Genrator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <div class="container" id="cv-g">
+        <h1 class="text-center my-2">CV Genrator</h1>
+        <div class="row">
+            <div class="col-6">
+                <h3>Personal Information</h3>
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" class="form-control" placeholder="Enter here" autocomplete="no">
+                </div>
+                <div class="form-group">
+                    <label for="name">Choose your Photo</label>
+                    <input type="file" id="photoF" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="teliphone">Your Contect</label>
+                    <input type="tel" id="teliphone" class="form-control" placeholder="+91" autocomplete="no">
+                </div>
+                <div class="form-group">
+                    <label for="address">Your Address</label>
+                    <!-- <input type="" id="address" class="form-control" placeholder="Enter here"> -->
+                    <textarea name="address" id="address" class="form-control" rows="5"
+                        placeholder="Enter here"></textarea>
+                </div>
+                <p class="text-seconadry my-2">Important Links</p>
+                <div class="form-group">
+                    <label for="facebook-link">Facebook</label>
+                    <input type="text" id="facebook-link" class="form-control" placeholder="Enter here">
+                </div>
+                <div class="form-group">
+                    <label for="instagram-link">Instagram</label>
+                    <input type="text" id="instagram-link" class="form-control" placeholder="Enter here">
+                </div>
+                <div class="form-group">
+                    <label for="linkdin-link">Linkdin</label>
+                    <input type="text" id="linkdin-link" class="form-control" placeholder="Enter here">
+                </div>
+                <div class="form-group">
+                    <label for="github-link">Github</label>
+                    <input type="text" id="github-link" class="form-control" placeholder="Enter here">
+                </div>
+
+            </div>
+            <div class="col-6">
+                <h3>Professional Information</h3>
+                <div class="form-group">
+                    <label for="objective">Objective</label>
+                    <!-- <input type="" id="address" class="form-control" placeholder="Enter here"> -->
+                    <textarea name="objective" id="objective" class="form-control" rows="5"
+                        placeholder="Enter here"></textarea>
+                </div>
+                <div class="form-group" id="ac-q">
+                    <label for="acadamicQualifcation">Acadamic Qualification</label>
+                    <!-- <input type="" id="address" class="form-control" placeholder="Enter here"> -->
+                    <textarea name="acadamicQualifcation" id="acadamicQualifcation" class="form-control qualificationF"
+                        placeholder="Enter here"></textarea>
+                    <div class="text-center my-2" id="addQualiButton">
+                        <button class="btn btn-primary" onclick="addAcadamicQualification()">Add</button>
+                    </div>
+                </div>
+                <div class="form-group" id="skill">
+                    <label for="skills">Add Skills</label>
+                    <!-- <input type="" id="address" class="form-control" placeholder="Enter here"> -->
+                    <textarea name="skills" id="skills" class="form-control skillsF"
+                        placeholder="Enter here"></textarea>
+                    <div class="text-center my-2" id="addSkillButton">
+                        <button class="btn btn-primary" onclick="addSkills()">Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center my-5">
+            <button class="btn btn-primary" onclick="genrateCv()">Genrate Resume</button>
+        </div>
+    </div>
+
+    <!-- cv tamplate goes here -->
+    <div class="container my-2" id="cv-t">
+        <div class="row">
+            <div class="col-md-3 personal-d">
+                <!-- personal details -->
+                <div class="text-center">
+                    <img src="userImg.png" alt="userimg" id="photoT">
+                    <p id="userNamePersonal"></p>
+                </div>
+                <h4 class="my-2">Contect</h4>
+                <p id="telNo"></p>
+                <h4 class="my-2">Address</h4>
+                <p id="addressT"></p>
+                <h4 class="my-2">Links</h4>
+                <a href="//www.facebook.com">
+                    <p id="fb-link"></p>
+                </a>
+                <a href="//www.instagram.com">
+                    <p id="insta-link"></p>
+                </a>
+                <a href="//www.linkdin.com">
+                    <p id="din-link"></p>
+                </a>
+                <a href="//www.github.com">
+                    <p id="hub-link"></p>
+                </a>
+            </div>
+
+            <div class="col-md-9">
+                <!-- Professional details -->
+                <h1 class="text-center text-decoration-underline" id="userNameProfessional">Name</h1>
+                <!-- objective -->
+                <div class="card my-2">
+                    <h4 class="text-decoration-underline card-header bg-dark text-white">Objective</h4>
+                    <p id="objectiveT" class="px-3"></p>
+                </div>
+                <!-- Acadamic Qualification -->
+                <div class="card my-2">
+                    <div class="card-header bg-dark text-white">
+                        <h3 class="text-decoration-underline">Acadamic Qualification</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul id="qualificationT">
+
+                        </ul>
+                    </div>
+                </div>
+                <!-- skills -->
+                <div class="card my-2">
+                    <div class="card-header bg-dark text-white">
+                        <h3 class="text-decoration-underline">Skills</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul id="skillsT">
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <button class="btn btn-primary" onclick="printCV()">Print</button>
+        </div>
+    </div>
+
+</body>
+<script src="CV.js"></script>
+
+
+</html>
